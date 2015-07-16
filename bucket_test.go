@@ -12,7 +12,7 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/boltdb/bolt"
+	"github.com/brb/bolt"
 )
 
 // Ensure that a bucket that gets a non-existent key returns nil.
@@ -492,7 +492,7 @@ func TestBucket_NextSequence(t *testing.T) {
 
 // Ensure that a bucket will persist an autoincrementing sequence even if its
 // the only thing updated on the bucket.
-// https://github.com/boltdb/bolt/issues/296
+// https://github.com/brb/bolt/issues/296
 func TestBucket_NextSequence_Persist(t *testing.T) {
 	db := NewTestDB()
 	defer db.Close()

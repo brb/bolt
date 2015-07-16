@@ -60,7 +60,7 @@ type DB struct {
 	// Skipping truncation avoids preallocation of hard drive space and
 	// bypasses a truncate() and fsync() syscall on remapping.
 	//
-	// https://github.com/boltdb/bolt/issues/284
+	// https://github.com/brb/bolt/issues/284
 	NoGrowSync bool
 
 	// MaxBatchSize is the maximum size of a batch. Default value is

@@ -8,7 +8,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/boltdb/bolt"
+	"github.com/brb/bolt"
 )
 
 func validateBatchBench(b *testing.B, db *TestDB) {

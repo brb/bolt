@@ -1,5 +1,8 @@
-Bolt [![Build Status](https://drone.io/github.com/boltdb/bolt/status.png)](https://drone.io/github.com/boltdb/bolt/latest) [![Coverage Status](https://coveralls.io/repos/boltdb/bolt/badge.png?branch=master)](https://coveralls.io/r/boltdb/bolt?branch=master) [![GoDoc](https://godoc.org/github.com/boltdb/bolt?status.png)](https://godoc.org/github.com/boltdb/bolt) ![Version](http://img.shields.io/badge/version-1.0-green.png)
+Bolt
 ====
+
+**WIP: converting Bolt to in-memory storage for benchmarking purpose. DON'T use
+this fork !**
 
 Bolt is a pure Go key/value store inspired by [Howard Chu's][hyc_symas] and
 the [LMDB project][lmdb]. The goal of the project is to provide a simple,
@@ -30,7 +33,7 @@ services every day.
 To start using Bolt, install Go and run `go get`:
 
 ```sh
-$ go get github.com/boltdb/bolt/...
+$ go get github.com/brb/bolt/...
 ```
 
 This will retrieve the library and install the `bolt` command line utility into
@@ -50,7 +53,7 @@ package main
 import (
 	"log"
 
-	"github.com/boltdb/bolt"
+	"github.com/brb/bolt"
 )
 
 func main() {
@@ -537,7 +540,7 @@ Here are a few things to note when evaluating and using Bolt:
 
 * Bolt is good for read intensive workloads. Sequential write performance is
   also fast but random writes can be slow. You can add a write-ahead log or
-  [transaction coalescer](https://github.com/boltdb/coalescer) in front of Bolt
+  [transaction coalescer](https://github.com/brb/coalescer) in front of Bolt
   to mitigate this issue.
 
 * Bolt uses a B+tree internally so there can be a lot of random page access.
@@ -584,7 +587,7 @@ Here are a few things to note when evaluating and using Bolt:
 
   For more information on page allocation, [see this comment][page-allocation].
 
-[page-allocation]: https://github.com/boltdb/bolt/issues/308#issuecomment-74811638
+[page-allocation]: https://github.com/brb/bolt/issues/308#issuecomment-74811638
 
 
 ## Other Projects Using Bolt
