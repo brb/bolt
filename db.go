@@ -2,6 +2,7 @@ package bolt
 
 import (
 	"fmt"
+	"github.com/brb/bolt/fos" // fake file impl.
 	"hash/fnv"
 	"os"
 	"runtime"
@@ -80,7 +81,7 @@ type DB struct {
 	MaxBatchDelay time.Duration
 
 	path     string
-	file     *os.File
+	file     *fos.File
 	dataref  []byte // mmap'ed readonly, write throws SEGV
 	data     *[maxMapSize]byte
 	datasz   int
@@ -150,7 +151,7 @@ func Open(path string, mode os.FileMode, options *Options) (*DB, error) {
 	// Open data file and separate sync handler for metadata writes.
 	db.path = path
 	var err error
-	if db.file, err = os.OpenFile(db.path, flag|os.O_CREATE, mode); err != nil {
+	if db.file, err = fos.OpenFile(db.path, flag|os.O_CREATE, mode); err != nil {
 		_ = db.close()
 		return nil, err
 	}

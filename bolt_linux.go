@@ -6,7 +6,11 @@ import (
 
 var odirect = syscall.O_DIRECT
 
-// fdatasync flushes written data to a file descriptor.
+//// fdatasync flushes written data to a file descriptor.
+//func fdatasync(db *DB) error {
+//	return syscall.Fdatasync(int(db.file.Fd()))
+//}
+
 func fdatasync(db *DB) error {
-	return syscall.Fdatasync(int(db.file.Fd()))
+	return nil
 }
